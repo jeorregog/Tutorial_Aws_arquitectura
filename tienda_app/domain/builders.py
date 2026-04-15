@@ -31,7 +31,7 @@ class OrdenBuilder:
         return self
 
     def build(self) -> Orden:
-        if not self._libro:
+        if not self._libro or self._cantidad <= 0:
             raise ValueError("Datos insuficientes para crear la orden.")
 
         total_unitario = CalculadorImpuestos.obtener_total_con_iva(self._libro.precio)
